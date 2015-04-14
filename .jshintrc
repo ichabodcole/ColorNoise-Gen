@@ -1,0 +1,11 @@
+{
+    "curly": false,
+    "immed": true,
+    "newcap": true,
+    "sub": true,
+    "eqnull": true,
+    "multistr":true,
+    "debug": true,
+    "esnext": true,
+    "browserify": true
+}

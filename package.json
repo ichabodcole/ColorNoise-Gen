@@ -1,0 +1,42 @@
+{
+  "name": "NoiseGen-ES6",
+  "version": "0.0.1",
+  "author": "Cole Reed",
+  "description": "Library for generating different types of noise via the web audio api",
+  "filename": "NoiseGen",
+  "main": "lib/NoiseGen.js",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "web-audio-api, noise"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "allen": "^0.1.7",
+    "babelify": "^5.0.4",
+    "beepbeep": "^1.2.0",
+    "browserify": "^9.0.4",
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.8.4",
+    "gulp-load-plugins": "^0.9.0",
+    "jasmine-core": "^2.0.4",
+    "jshint-stylish": "^1.0.0",
+    "karma": "^0.12.31",
+    "karma-browserify": "^4.1.2",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-nyan-reporter": "0.0.60",
+    "karma-osx-reporter": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-phantomjs-shim": "^1.0.0",
+    "watchify": "^2.0.0",
+    "web-audio-test-api": "^0.2.1"
+  },
+  "dependencies": {}
+}
