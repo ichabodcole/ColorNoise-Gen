@@ -1,9 +1,8 @@
 {
-  "name": "NoiseGen-ES6",
+  "name": "noisegen",
   "version": "0.0.1",
   "author": "Cole Reed",
   "description": "Library for generating different types of noise via the web audio api",
-  "filename": "NoiseGen",
   "main": "lib/NoiseGen.js",
   "browserify": {
     "transform": [
