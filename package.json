@@ -1,16 +1,17 @@
 {
-  "name": "noisegen",
-  "version": "0.0.1",
+  "name": "colornoise-gen",
+  "version": "0.1.0",
   "author": "Cole Reed",
-  "description": "Library for generating different types of noise via the web audio api",
-  "main": "lib/NoiseGen.js",
+  "description": "Library for generating different types of random color noise via the web audio api",
+  "main": "./index.js",
   "browserify": {
     "transform": [
       "babelify"
     ]
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "gulp tdd"
   },
   "keywords": [
     "web-audio-api, noise"
@@ -21,9 +22,14 @@
     "babelify": "^5.0.4",
     "beepbeep": "^1.2.0",
     "browserify": "^9.0.4",
-    "gulp": "^3.8.11",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
     "gulp-jshint": "^1.8.4",
     "gulp-load-plugins": "^0.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.1",
+    "gulp-util": "^3.0.6",
     "jasmine-core": "^2.0.4",
     "jshint-stylish": "^1.0.0",
     "karma": "^0.12.31",
@@ -34,8 +40,21 @@
     "karma-osx-reporter": "^0.2.0",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-phantomjs-shim": "^1.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
     "watchify": "^2.0.0",
     "web-audio-test-api": "^0.2.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichabodcole/ColorNoise-Gen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ichabodcole/ColorNoise-Gen/issues"
+  },
+  "homepage": "https://github.com/ichabodcole/ColorNoise-Gen#readme"
 }
