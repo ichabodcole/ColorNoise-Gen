@@ -18,7 +18,7 @@ module.exports = function(config) {
         transform: ['babelify'],
         configure: function(bundle) {
             bundle.on('prebundle', function() {
-                bundle.add('babelify/polyfill');
+                bundle.add(require.resolve('babelify/polyfill'));
             });
         }
     },

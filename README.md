@@ -1,7 +1,7 @@
-NoiseGenJS-ES6
+ColorNoise-Gen
 ==========
 
-Library for generating different types of noise via the web audio api. Written in ES6.
+Library for generating different types of random color noise via the web audio api.
 
 ### Installation
-npm install ichabodcole/NoiseGenJS-ES6
+npm install colornoise-gen
