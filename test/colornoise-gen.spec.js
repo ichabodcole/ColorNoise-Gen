@@ -1,6 +1,6 @@
-import { NoiseTypes, NoiseGen } from '../lib/NoiseGen';
+import { NoiseTypes, ColorNoiseGen } from '../lib/ColorNoiseGen';
 
-describe("NoiseGen", function() {
+describe("ColorNoiseGen", function() {
     var ctx, noiseGen, gainNode;
 
     beforeAll(function() {
@@ -9,25 +9,25 @@ describe("NoiseGen", function() {
     });
 
     beforeEach(function() {
-        window.NoiseGenProcessors = null;
-        noiseGen = new NoiseGen(ctx);
+        window.ColorNoiseGenProcessors = null;
+        noiseGen = new ColorNoiseGen(ctx);
     });
 
     it('should be defined', function() {
-        expect(NoiseGen).toBeDefined();
+        expect(ColorNoiseGen).toBeDefined();
     });
 
     describe('constructor', function() {
 
         it("should be an instance of NoiseGen", function() {
-            expect(noiseGen instanceof NoiseGen).toBe(true);
+            expect(noiseGen instanceof ColorNoiseGen).toBe(true);
         });
 
-        it('should increate the global NoiseGenProcessors by 1', function() {
+        it('should increate the global ColorNoiseGenProcessors by 1', function() {
             var processorCount;
 
             noiseGen.__getProcessorIndex();
-            processorCount = window.NoiseGenProcessors.length;
+            processorCount = window.ColorNoiseGenProcessors.length;
             expect(processorCount).toEqual(1);
         });
     });
@@ -64,11 +64,11 @@ describe("NoiseGen", function() {
                 expect(noiseGen.remove).toBeDefined();
             });
 
-            it('should descrease the global NoiseGenProcessors length by 1', function() {
+            it('should descrease the global ColorNoiseGenProcessors length by 1', function() {
                 var processorCountAfter, processorCountBefore;
-                processorCountBefore = window.NoiseGenProcessors.length;
+                processorCountBefore = window.ColorNoiseGenProcessors.length;
                 noiseGen.remove();
-                processorCountAfter = window.NoiseGenProcessors.length;
+                processorCountAfter = window.ColorNoiseGenProcessors.length;
                 expect(processorCountAfter).toEqual(processorCountBefore - 1);
             });
         });
@@ -85,7 +85,7 @@ describe("NoiseGen", function() {
             it('should take a web audio component instance', function() {
                 var connect;
                 connect = function() {
-                    noiseGen.connect(new NoiseGen(ctx));
+                    noiseGen.connect(new ColorNoiseGen(ctx));
                 };
                 expect(connect).not.toThrow();
             });
