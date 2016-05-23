@@ -1,6 +1,6 @@
 {
   "name": "colornoise-gen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Cole Reed",
   "description": "Library for generating different types of random color noise via the web audio api",
   "main": "./index.js",

@@ -1,29 +1,30 @@
-import { NoiseTypes, ColorNoiseGen } from '../lib/ColorNoiseGen';
+import { NoiseTypes } from '../lib/constants';
+import { ColorNoiseGen } from '../lib/ColorNoiseGen';
 
-describe("ColorNoiseGen", function() {
+describe("ColorNoiseGen", function () {
     var ctx, noiseGen, gainNode;
 
-    beforeAll(function() {
+    beforeAll(function () {
         ctx = allen.getAudioContext();
         gainNode = ctx.createGain();
     });
 
-    beforeEach(function() {
+    beforeEach(function () {
         window.ColorNoiseGenProcessors = null;
         noiseGen = new ColorNoiseGen(ctx);
     });
 
-    it('should be defined', function() {
+    it('should be defined', function () {
         expect(ColorNoiseGen).toBeDefined();
     });
 
-    describe('constructor', function() {
+    describe('constructor', function () {
 
-        it("should be an instance of NoiseGen", function() {
+        it("should be an instance of NoiseGen", function () {
             expect(noiseGen instanceof ColorNoiseGen).toBe(true);
         });
 
-        it('should increate the global ColorNoiseGenProcessors by 1', function() {
+        it('should increate the global ColorNoiseGenProcessors by 1', function () {
             var processorCount;
 
             noiseGen.__getProcessorIndex();
@@ -32,39 +33,39 @@ describe("ColorNoiseGen", function() {
         });
     });
 
-    describe('properties', function() {
-        it('should have an input property of type AudioNode', function() {
+    describe('properties', function () {
+        it('should have an input property of type AudioNode', function () {
             expect(allen.isAudioNode(noiseGen.input)).toEqual(true);
         });
 
-        it('should have an output property of type AudioNode', function() {
+        it('should have an output property of type AudioNode', function () {
             expect(allen.isAudioNode(noiseGen.output)).toEqual(true);
         });
 
-        it('should have a noiseType property defaulted to "brown"', function() {
-            expect(noiseGen.noiseType).toEqual('brown');
+        it('should have a noiseType property defaulted to "brown"', function () {
+            expect(noiseGen.noiseType).toEqual(NoiseTypes.BROWN);
         });
     });
 
-    describe('methods', function(){
-        describe('start', function() {
-            it('should have a start method', function() {
+    describe('methods', function () {
+        describe('start', function () {
+            it('should have a start method', function () {
                 expect(noiseGen.start).toBeDefined();
             });
         });
 
-        describe('stop', function() {
-            it('should have a stop method', function() {
+        describe('stop', function () {
+            it('should have a stop method', function () {
                 expect(noiseGen.stop).toBeDefined();
             });
         });
 
-        describe('remove', function() {
-            it('should have a remove method', function() {
+        describe('remove', function () {
+            it('should have a remove method', function () {
                 expect(noiseGen.remove).toBeDefined();
             });
 
-            it('should descrease the global ColorNoiseGenProcessors length by 1', function() {
+            it('should descrease the global ColorNoiseGenProcessors length by 1', function () {
                 var processorCountAfter, processorCountBefore;
                 processorCountBefore = window.ColorNoiseGenProcessors.length;
                 noiseGen.remove();
@@ -73,41 +74,41 @@ describe("ColorNoiseGen", function() {
             });
         });
 
-        describe('connect', function() {
-            it('should have a method connect that takes and AudioNode', function() {
+        describe('connect', function () {
+            it('should have a method connect that takes and AudioNode', function () {
                 var connect;
-                connect = function() {
+                connect = function () {
                     noiseGen.connect(gainNode);
                 };
                 expect(connect).not.toThrow();
             });
 
-            it('should take a web audio component instance', function() {
+            it('should take a web audio component instance', function () {
                 var connect;
-                connect = function() {
+                connect = function () {
                     noiseGen.connect(new ColorNoiseGen(ctx));
                 };
                 expect(connect).not.toThrow();
             });
         });
 
-        describe('disconnect', function() {
-            it('should have a method disconnect', function() {
+        describe('disconnect', function () {
+            it('should have a method disconnect', function () {
                 expect(noiseGen.disconnect).toBeDefined();
             });
         });
 
-        describe('setNoiseType', function() {
-            it('should change the noise type', function() {
-                noiseGen.noiseType ='white';
+        describe('setNoiseType', function () {
+            it('should change the noise type', function () {
+                noiseGen.noiseType = NoiseTypes.WHITE;
                 expect(noiseGen.noiseType).toEqual('white');
             });
 
-            it('should create a new noise object with an update method', function() {
+            it('should create a new noise object with an update method', function () {
                 var update;
 
-                noiseGen.noiseType = 'white';
-                update = function() {
+                noiseGen.noiseType = NoiseTypes.WHITE;
+                update = function () {
                     noiseGen.noise.update();
                 };
                 expect(update).not.toThrow();

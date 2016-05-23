@@ -26,7 +26,7 @@ gulp.task('jshint', jshint);
 gulp.task('clean', clean);
 
 /* Build / Bundle tasks */
-function build () {
+function build() {
     var b = browserify({
         entries: './index.js',
         debug: false
@@ -51,7 +51,7 @@ function clean(done) {
 }
 
 /* Test tasks */
-function tdd (done) {
+function tdd(done) {
     karma.start({
         configFile: path.join(__dirname, 'karma.conf.js'),
         singleRun: false,
@@ -60,7 +60,7 @@ function tdd (done) {
     startWatch();
 }
 
-function test (done) {
+function test(done) {
     karma.start({
         configFile: path.join(__dirname, 'karma.conf.js'),
         singleRun: true,

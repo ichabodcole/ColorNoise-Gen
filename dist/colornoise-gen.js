@@ -39,7 +39,7 @@ var NoiseFactory = _interopRequire(require("./NoiseFactory"));
 
 var ColorNoiseGen = (function () {
     function ColorNoiseGen(ctx) {
-        var noiseType = arguments[1] === undefined ? NoiseTypes.BROWN_NOISE : arguments[1];
+        var options = arguments[1] === undefined ? {} : arguments[1];
 
         _classCallCheck(this, ColorNoiseGen);
 
@@ -58,7 +58,7 @@ var ColorNoiseGen = (function () {
         this.timeout = null;
         this.bufferTimeout = 250;
 
-        this.noiseType = noiseType;
+        this.noiseType = options.noiseType || NoiseTypes.BROWN;
 
         this.__createInternalNodes(ctx);
         this.__routeNodes();
@@ -229,15 +229,15 @@ var NoiseFactory = {
         var noise;
 
         switch (type) {
-            case NoiseTypes.WHITE_NOISE:
+            case NoiseTypes.WHITE:
                 noise = new WhiteNoise();
                 break;
 
-            case NoiseTypes.PINK_NOISE:
+            case NoiseTypes.PINK:
                 noise = new PinkNoise();
                 break;
 
-            case NoiseTypes.BROWN_NOISE:
+            case NoiseTypes.BROWN:
                 noise = new BrownNoise();
                 break;
 
@@ -262,9 +262,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var NoiseTypes = {
-    WHITE_NOISE: "white",
-    BROWN_NOISE: "brown",
-    PINK_NOISE: "pink",
+    WHITE: "white",
+    BROWN: "brown",
+    PINK: "pink",
     SILENCE: "silence"
 };
 
@@ -513,7 +513,10 @@ require("core-js/shim");
 
 require("regenerator-babel/runtime");
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"core-js/shim":11,"regenerator-babel/runtime":12}],11:[function(require,module,exports){
+},{"core-js/shim":12,"regenerator-babel/runtime":13}],11:[function(require,module,exports){
+module.exports = require("./lib/babel/polyfill");
+
+},{"./lib/babel/polyfill":10}],12:[function(require,module,exports){
 /**
  * Core.js 0.6.1
  * https://github.com/zloirock/core-js
@@ -2492,7 +2495,7 @@ $define(GLOBAL + BIND, {
   Iterators.NodeList = Iterators[ARRAY];
 }(global.NodeList);
 }(typeof self != 'undefined' && self.Math === Math ? self : Function('return this')(), true);
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 (function (global){
 /**
  * Copyright (c) 2014, Facebook, Inc.
@@ -3033,10 +3036,7 @@ $define(GLOBAL + BIND, {
 );
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],13:[function(require,module,exports){
-module.exports = require("./lib/babel/polyfill");
-
-},{"./lib/babel/polyfill":10}],14:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = require("babel-core/polyfill");
 
-},{"babel-core/polyfill":13}]},{},[1,14]);
+},{"babel-core/polyfill":11}]},{},[1,14]);

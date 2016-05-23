@@ -1,0 +1,10 @@
+{
+    "preset": "airbnb",
+    "validateIndentation": 4,
+    "validateQuoteMarks": false,
+    "disallowMultipleVarDecl": false,
+    "requireTrailingComma": false,
+    "disallowQuotedKeysInObjects": false,
+    "requirePaddingNewLinesAfterBlocks": false,
+    "maximumLineLength": 150
+}
